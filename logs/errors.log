@@ -1,0 +1,9 @@
+2026-06-01 09:09:44,918 ERROR root: API call failed after 3 retries. HTTP 400: invalid params, unknown model 'anthropic/claude-opus-4.6' (2013) | provider=minimax-cn model=anthropic/claude-opus-4.6 msgs=2 tokens=***
+2026-06-01 09:11:18,988 WARNING agent.auxiliary_client: Provider auto unavailable, falling back to openrouter
+2026-06-01 09:11:18,988 WARNING agent.auxiliary_client: resolve_provider_client: openrouter requested but OPENROUTER_API_KEY not set
+2026-06-01 09:11:35,197 ERROR root: API call failed after 3 retries. HTTP 400: invalid params, unknown model 'anthropic/claude-opus-4.6' (2013) | provider=minimax-cn model=anthropic/claude-opus-4.6 msgs=3 tokens=***
+2026-06-01 09:12:50,190 ERROR root: API call failed after 3 retries. HTTP 400: invalid params, unknown model 'anthropic/claude-opus-4.6' (2013) | provider=minimax-cn model=anthropic/claude-opus-4.6 msgs=4 tokens=***
+2026-06-01 09:13:15,042 WARNING agent.auxiliary_client: Provider auto unavailable, falling back to openrouter
+2026-06-01 09:13:15,042 WARNING agent.auxiliary_client: resolve_provider_client: openrouter requested but OPENROUTER_API_KEY not set
+2026-06-01 10:42:19,836 WARNING agent.auxiliary_client: Provider auto unavailable, falling back to openrouter
+2026-06-01 10:42:19,837 WARNING agent.auxiliary_client: resolve_provider_client: openrouter requested but OPENROUTER_API_KEY not set
