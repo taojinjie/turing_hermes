@@ -243,4 +243,39 @@ fi
 | `ssh: connect to host github.com port 22: Connection refused` | Try SSH over HTTPS port: add `Host github.com` with `Port 443` and `Hostname ssh.github.com` to `~/.ssh/config` |
 | Credentials not persisting | Check `git config --global credential.helper` — must be `store` or `cache` |
 | Multiple GitHub accounts | Use SSH with different keys per host alias in `~/.ssh/config`, or per-repo credential URLs |
-| `gh: command not found` + no sudo | Use git-only Method 1 above — no installation needed |
+| `gh: command not found` + no sudo | Use git-only Method 1 above, or install gh via binary download (see below) |
+
+## Installing gh CLI Without Sudo
+
+If `sudo` is blocked but `wget` is available, download the binary directly from GitHub releases:
+
+```bash
+# Download latest release (check https://github.com/cli/cli/releases for current version)
+cd /tmp
+wget https://github.com/cli/cli/releases/download/v2.65.0/gh_2.65.0_linux_amd64.tar.gz -O gh.tar.gz
+tar -xzf gh.tar.gz
+
+# Copy binary to ~/bin (no sudo needed)
+mkdir -p ~/bin
+cp gh_2.65.0_linux_amd64/bin/gh ~/bin/gh
+chmod +x ~/bin/gh
+
+# Add to PATH (add to ~/.bashrc for persistence)
+export PATH="$HOME/bin:$PATH"
+gh --version
+```
+
+For machines with `curl` but no `wget`:
+```bash
+cd /tmp
+curl -sL https://github.com/cli/cli/releases/download/v2.65.0/gh_2.65.0_linux_amd64.tar.gz -o gh.tar.gz
+tar -xzf gh.tar.gz
+mkdir -p ~/bin && cp gh_2.65.0_linux_amd64/bin/gh ~/bin/gh && chmod +x ~/bin/gh
+export PATH="$HOME/bin:$PATH" && gh --version
+```
+
+After installation, authenticate with:
+```bash
+echo "<YOUR_PAT>" | gh auth login --with-token
+gh auth setup-git
+```
